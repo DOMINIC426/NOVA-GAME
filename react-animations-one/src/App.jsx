@@ -1,28 +1,60 @@
+import { Gamepad , PersonStandingIcon} from 'lucide-react';
+import Navigation from './Navgation';
+import novaImage from './assets/nova.jpg'
+import { Games } from './Games';
+
 export default function App() {
     return (
         <div className="min-h-screen bg-gray-950 text-white">
-          
 
-            <nav className="flex items-center justify-between p-6 bg-white m-2">
-                <h1 className="text-2xl font-bold text-blue-500">
-                    NOVA
-                </h1>
-
-                <button className="rounded-lg bg-blue-600 px-5 py-2 transition-transform duration-300 hover:scale-110">
-                    Explore Games
-                </button>
-            </nav>
+          <Navigation/>
             
+            <hr className="border-gray-800 border-2"  />
 
-            <main className="flex min-h-[80vh] flex-col items-center justify-center text-center">
-                <h2 className="text-5xl font-bold">
+            {/* the background image ad color  */}
+
+            <div className='flex justify-between items-center'>
+
+              <main className="flex min-h-[80vh] flex-col items-center justify-center text-center w-1/2">
+
+                <h2 className="text-5xl font-bold text-center  w-full">
                     ENTER THE NEXT LEVEL
                 </h2>
 
                 <p className="mt-4 text-gray-400">
                     Discover your next gaming adventure.
                 </p>
+
+                {/* Two buttons section */}
+                <section className="mt-6 flex items-center gap-4 tracking-wide">
+                    <button className="flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 font-semibold transition-all hover:bg-blue-500 hover:scale-105">
+                        <span>Explore Games</span>
+                    </button>
+
+                    <button className='bg-black p-3 rounded-xl tracking-wide'>
+                      <span>Watch Traller</span>
+                    </button>
+                </section>
+
             </main>
+
+{/* image part  */}
+           <section className='bg-cover bg-no-repeat bg-center h-250 w-1/2 opacity-45 ' style={{
+            backgroundImage:`url(${novaImage})`
+           }}>
+
+           </section>
+
+            </div>
+            {/* end of side image */}
+
+            <section className='w-full inline-block text-center  tracking-wider text-2xl md:text-3xl'>
+              <span className='h-2  bg-white inline-block w-20 mr-2 md:h-5'></span>
+              <span className='capitalize' id='games'>More than just game</span>
+            </section>
+
+            <Games/>
+
 
         </div>
     );
