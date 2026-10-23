@@ -1,4 +1,4 @@
-import { Gamepad , PersonStandingIcon} from 'lucide-react';
+import { Gamepad , PersonStandingIcon,GamepadIcon} from 'lucide-react';
 import Navigation from './Navgation';
 import novaImage from './assets/nova.jpg'
 import { Games } from './Games';
@@ -20,8 +20,9 @@ export default function App() {
 
                 <motion.h2
                initial={{ opacity: 0, y: 40 }}
-               animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, ease: "easeOut" }}
+               whileInView={{opacity:1,y:0}}
+               viewport={{amount:0.6}}
+                transition={{ duration: 1, ease: "easeOut" }}
                 className="text-5xl font-bold text-center w-full"
                     >
                          ENTER THE NEXT LEVEL
@@ -33,10 +34,14 @@ export default function App() {
 
                 {/* Two buttons section */}
                 <section className="mt-6 flex items-center gap-4 tracking-wide">
-                    <button className="flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 font-semibold transition-all hover:bg-blue-500 hover:scale-105">
-                        <span>Explore Games</span>
-                    </button>
-
+                    <motion.button 
+                whileHover={{ scale: 1.15, y: -2 }}
+                transition={{ type: "spring", stiffness: 400, damping: 3 }}
+                  className="flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 font-semibold text-white shadow-lg"
+                >
+             <GamepadIcon className="size-5" />
+               <span>Explore Games</span>
+               </motion.button>
                     <button className='bg-black p-3 rounded-xl tracking-wide'>
                       <span>Watch Traller</span>
                     </button>
@@ -60,7 +65,6 @@ export default function App() {
             </section>
 
             <Games/>
-
 
         </div>
     );
