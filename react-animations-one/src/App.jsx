@@ -2,6 +2,7 @@ import { Gamepad , PersonStandingIcon} from 'lucide-react';
 import Navigation from './Navgation';
 import novaImage from './assets/nova.jpg'
 import { Games } from './Games';
+import {motion} from 'framer-motion'
 
 export default function App() {
     return (
@@ -17,9 +18,14 @@ export default function App() {
 
               <main className="flex min-h-[80vh] flex-col items-center justify-center text-center w-1/2">
 
-                <h2 className="text-5xl font-bold text-center  w-full">
-                    ENTER THE NEXT LEVEL
-                </h2>
+                <motion.h2
+               initial={{ opacity: 0, y: 40 }}
+               animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, ease: "easeOut" }}
+                className="text-5xl font-bold text-center w-full"
+                    >
+                         ENTER THE NEXT LEVEL
+                </motion.h2>
 
                 <p className="mt-4 text-gray-400">
                     Discover your next gaming adventure.
